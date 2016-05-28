@@ -30,5 +30,15 @@ def start():
         pass # Allows the loops to stop when player is done
     scores() # Call function when done playing
 
+def game():
+    # Call move function to determine player move
+    player = move()
+    # Get computer move as random int between 1 and 3
+    computer = random.randint(1, 3)
+    # Send the move through the result function
+    result(player, computer)
+    return play_again()
 
+
+    
 
