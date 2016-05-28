@@ -27,7 +27,7 @@ computer_score = 0
 def start():
     print ("Let's play a game of Rock, Paper, Scissors.")
     while game():
-        pass # Allows the loops to stop when player is done
+        pass # Allows the loop to stop when player is done
     scores() # Call function when done playing
 
 def game():
@@ -39,6 +39,39 @@ def game():
     result(player, computer)
     return play_again()
 
+# Function to obtain a move from the player
+def move():
+    while True:
+        print
+        player = raw_input("Rock = 1\nPaper = 2\nScissors = 3\nMake a move: ")
+        # Try to set the player move, or catch the error
+        try:
+            # Cast the user input as an integer
+            player = int(player)
+            # If entry is valid, set the variable
+            if player in (1,2,3):
+                return player
+        except ValueError:
+            pass
+        print ("Oops! I didn't understand that. Please enter 1, 2, or 3.")
+
+# Function to determine the result of the game
+# player move and computer move are passed in
+def result(player, computer):
+    # Countdown to result display
+    print ("1...")
+    time.sleep(1)
+    print ("2...")
+    time.sleep(1)
+    print("3!")
+    time.sleep(0.5)
+    # Display the computer's move
+    # string.format() gets the text version
+    # of the move and inserts it where "0"
+    print ("Computer threw {0}!".format(names[computer]))
+    #Call the scores set earlier
+    global player_score, computer_score
+    
 
     
 
