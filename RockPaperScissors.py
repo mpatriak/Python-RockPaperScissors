@@ -92,9 +92,10 @@ def play_again():
         print ("Thank you very much for playing. See you next time!")
 
 def scores():
+    global player_score, computer_score
     print ("HIGH SCORES")
-    print ("Player: "), player_score
-    print ("Computer: "), computer_score
+    print ("Player: ", player_score)
+    print ("Computer: ", computer_score)
 
 # Used to execute in command line or import
 # into another Python script. This will prevent
