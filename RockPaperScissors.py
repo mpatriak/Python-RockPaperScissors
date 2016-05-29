@@ -43,7 +43,7 @@ def game():
 def move():
     while True:
         print
-        player = raw_input("Rock = 1\nPaper = 2\nScissors = 3\nMake a move: ")
+        player = input("Rock = 1\nPaper = 2\nScissors = 3\nMake a move: ")
         # Try to set the player move, or catch the error
         try:
             # Cast the user input as an integer
@@ -71,7 +71,35 @@ def result(player, computer):
     print ("Computer threw {0}!".format(names[computer]))
     #Call the scores set earlier
     global player_score, computer_score
-    
+    # Check the results of the game
+    if player == computer:
+        print ("Tie game.")
+    # Check if the losing move to the player's move
+    # is equal to the computer's move
+    elif rules[player] == computer:
+        print ("Your victory has been assured.")
+        player_score += 1
+    else:
+        print ("The computer laughs as you realize you have been defeated.")
+        computer_score += 1
 
+# Ask to play again
+def play_again():
+    answer = input("Would you like to play again? y/n: ")
+    if answer in ("y", "Y", "yes", "Yes", "Of course!"):
+        return answer
+    else:
+        print ("Thank you very much for playing. See you next time!")
+
+def scores():
+    print ("HIGH SCORES")
+    print ("Player: "), player_score
+    print ("Computer: "), computer_score
+
+# Used to execute in command line or import
+# into another Python script. This will prevent
+# the code from being executed when being imported.
+if __name__ == '__main__':
+    start()
     
 
